@@ -4,6 +4,8 @@ require 'ndjson'
 require 'json'
 srand(1)
 
+
+
 class Array
   def match_length_recursive(other)
     if(self[0].nil?)
@@ -124,10 +126,19 @@ if(ENV["CHECK"])
 else #generate
 
   #ARGF.each_line do |line|
+  trap "SIGINT" do
+    puts "Exiting"
+    exit 130
+  end
+
+  begin
   File.readlines(ARGV[0]).shuffle.each do |line|
     for candidate in candidates
       next if modify_candidate.call(candidate, JSON.parse(line))
     end
+  end
+  rescue Exception => e
+    STDOUT.puts(e.message)
   end
 
   #parser = NDJSON::Parser.new( $stdin )
