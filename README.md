@@ -11,4 +11,4 @@ gutenberg-poetry-corpus
 
 You can then attempt to "fill in" shorter sequences like this:
 
-MINIMUM_MATCH_LENGTH=3 CANDIDATES={output file such as piems_out/piem_12345.txt} ./piem_generator.rb corpus.ndjson
+MINIMUM_MATCH_LENGTH=3 CANDIDATES={output file such as piems_out/piem_12345.txt} ./piem_generator.rb corpus.ndjsontesting testing
